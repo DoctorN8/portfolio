@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Study: Service Desk Analytics Pipeline using DuckDB, SQL, and Streamlit by Nathan St. Pierre.">
+    <meta name="author" content="Nathan St. Pierre">
+    <title>Service Desk Analytics | Nathan St. Pierre</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-brand: #aa784d;
+            --dark-text: #2a2a2a;
+        }
+
+        body { font-family: 'Lora', serif; color: #444; line-height: 1.7; }
+        h1, h2, h3, h4, h5, .nav-link, .btn, .tech-label { font-family: 'Montserrat', sans-serif; }
+
+        .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
+        .navbar-brand { font-weight: 800; color: var(--dark-text); }
+        .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; }
+        .nav-link:hover { color: var(--primary-brand) !important; }
+
+        .btn-brand {
+            background-color: var(--primary-brand);
+            border-color: var(--primary-brand);
+            color: white;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover { background-color: #8a603d; color: white; transform: translateY(-2px); }
+
+        .project-header {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tech-stack-item {
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .architecture-step {
+            border-left: 3px solid var(--primary-brand);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; }
+        .footer-link { color: #aaa; text-decoration: none; display: block; margin-bottom: 10px; }
+        .footer-link:hover { color: var(--primary-brand); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">NATHAN ST. PIERRE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="text-uppercase text-muted fw-bold" style="font-size: 0.9rem; letter-spacing: 1px;">Data Engineering & Analytics</span>
+                    <h1 class="fw-bold display-4 mt-2 mb-3">Service Desk Analytics Pipeline</h1>
+                    <p class="lead text-muted">A full-stack data engineering project transforming raw logs into actionable efficiency metrics using DuckDB and Streamlit.</p>
+                    <div class="mt-4">
+                        <a href="https://service-desk-analytics-rslsguxfcy4rgfndvbw5ws.streamlit.app/" target="_blank" class="btn btn-brand btn-lg me-3">
+                            <i class="fas fa-rocket me-2"></i>Launch Live Demo
+                        </a>
+                        <a href="https://github.com/doctorn8/service-desk-analytics" target="_blank" class="btn btn-outline-dark btn-lg">
+                            <i class="fab fa-github me-2"></i>View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3 class="fw-bold mb-4">The Challenge</h3>
+                    <p>
+                        Service organizations often struggle to identify the root cause of inefficiencies. Metrics like "Mean Time to Resolve" (MTTR) are often aggregated, hiding the specific technicians or ticket types causing bottlenecks. The goal of this project was to build a <strong>transparent, drill-down capable analytics suite</strong> that a VP of Services could use to justify headcount or identify training gaps.
+                    </p>
+                    
+                    <h3 class="fw-bold mb-4 mt-5">The Solution</h3>
+                    <p>
+                        I engineered an end-to-end ELT (Extract, Load, Transform) pipeline that ingests raw ticketing data, models it into a Star Schema for high-performance querying, and visualizes it via an interactive web application.
+                    </p>
+
+                    <div class="my-5 p-4 bg-light rounded">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-layer-group me-2"></i>System Architecture</h4>
+                        
+                        <div class="architecture-step">
+                            <h5 class="fw-bold">1. Data Generation & Ingestion</h5>
+                            <p class="mb-0">Created a robust Python script using <code>Faker</code> and <code>NumPy</code> to generate realistic synthetic data. This includes specific patterns (e.g., a "bottleneck technician" with high re-open rates) to ensure the dashboard tells a discoverable story.</p>
+                        </div>
+
+                        <div class="architecture-step">
+                            <h5 class="fw-bold">2. Data Modeling (DuckDB)</h5>
+                            <p class="mb-0">Designed a Star Schema consisting of <code>fact_tickets</code>, <code>fact_sla_snapshots</code>, and dimension tables. Used DuckDB as a local OLAP warehouse to handle window functions and fast aggregations.</p>
+                        </div>
+
+                        <div class="architecture-step">
+                            <h5 class="fw-bold">3. Visualization Layer</h5>
+                            <p class="mb-0">Built a multi-page Streamlit application using Plotly for interactive charting. The app connects directly to the DuckDB file for low-latency querying.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="fw-bold mb-4">Key Insights Visualized</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Executive Pulse:</strong> High-level view of MTTR, First Contact Resolution (FCR), and Backlog growth.</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Efficiency Matrix:</strong> A scatter plot comparing Ticket Volume vs. Customer Satisfaction (CSAT) to identify high-performers vs. struggling agents.</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Backlog Trends:</strong> Historical snapshot analysis to visualize how the ticket queue grows over time.</li>
+                    </ul>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 bg-light">
+                        <h5 class="fw-bold mb-3">Tech Stack</h5>
+                        <div>
+                            <span class="tech-stack-item"><i class="fas fa-code me-2"></i>Python</span>
+                            <span class="tech-stack-item"><i class="fas fa-database me-2"></i>DuckDB (SQL)</span>
+                            <span class="tech-stack-item"><i class="fas fa-chart-bar me-2"></i>Streamlit</span>
+                            <span class="tech-stack-item"><i class="fas fa-chart-line me-2"></i>Plotly</span>
+                            <span class="tech-stack-item"><i class="fab fa-github me-2"></i>GitHub Actions</span>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h5 class="fw-bold mb-3">Project Artifacts</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="fas fa-file-code me-2 text-muted"></i>Schema Definition (SQL)</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="fas fa-file-csv me-2 text-muted"></i>Synthetic Dataset</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="fas fa-sitemap me-2 text-muted"></i>ER Diagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-heading">Nathan St. Pierre</h5>
+                    <p>Data Scientist & AI Solutions Architect.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-heading">Connect</h5>
+                    <a href="mailto:nathan.stpierre@gmail.com" class="footer-link"><i class="fas fa-envelope me-2"></i>Contact</a>
+                    <a href="https://linkedin.com/in/doctorn8" class="footer-link"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #555;">
+            <div class="text-center"><p class="mb-0">&copy; 2025 Nathan St. Pierre.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
