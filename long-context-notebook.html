@@ -106,7 +106,7 @@
                     </h1>
                     <p class="lead text-muted">
                         A controlled needle‑in‑a‑haystack study of Gemini 2.5 Flash and GPT‑4o‑mini, focused on position bias,
-                        adversarial distractors, and constraint‑based verification layers for safer long‑context retrieval.[file:31][web:67]
+                        adversarial distractors, and constraint‑based verification layers for safer long‑context retrieval.
                     </p>
                     <div class="mt-4">
                         <a href="https://www.kaggle.com/code/doctorn8/gemini-vs-gpt-4o-mini" target="_blank" class="btn btn-brand btn-lg me-3">
@@ -130,25 +130,25 @@
                     <h3 class="fw-bold mb-4">Motivation & Research Questions</h3>
                     <p>
                         Long‑context marketing often emphasizes maximum token capacity, but real systems care about whether a model
-                        reliably surfaces the one critical fact buried in thousands of tokens.[file:31][web:67]
+                        reliably surfaces the one critical fact buried in thousands of tokens.
                         This notebook frames Gemini 2.5 Flash and GPT‑4o‑mini as experimental subjects and asks how accuracy changes
                         with evidence position, how fragile they are to realistic distractors, and how much a simple verification layer
-                        can mitigate these failure modes without retraining.[file:31]
+                        can mitigate these failure modes without retraining.
                     </p>
 
                     <div class="callout my-4">
                         <strong>Design inspiration:</strong> The study is influenced by “lost in the middle” style evaluations
                         and “when transformers know but don’t tell,” treating long‑context reliability as a behavioral property
-                        that can be probed, quantified, and constrained.[file:31][web:67]
+                        that can be probed, quantified, and constrained.
                     </div>
 
                     <h3 class="fw-bold mb-4 mt-5">Needle‑in‑a‑Haystack Probe Generator</h3>
                     <p>
                         At the core of the experiment is a <strong>ContextProbeGenerator</strong> class that builds synthetic
                         “corporate log” contexts containing one true security code (“the needle”) for a specific project ID and a
-                        configurable number of fake look‑alike codes as distractors.[file:31]
+                        configurable number of fake look‑alike codes as distractors.
                         For each probe, it returns the full prompt, the ground‑truth six‑digit code, the target depth, the number of
-                        distractors, and an approximate token count.[file:31]
+                        distractors, and an approximate token count.
                     </p>
 
                     <div class="my-4 p-4 bg-light rounded">
@@ -160,7 +160,7 @@
                             <h5 class="fw-bold">1. Needle creation</h5>
                             <p class="mb-0">
                                 The generator samples a project ID (for example, PROJ‑X99) and a unique six‑digit security code,
-                                then emits a canonical line such as “CRITICAL ALERT PROJECT PROJ‑X99 SECURITY CODE IS 123456.”[file:31]
+                                then emits a canonical line such as “CRITICAL ALERT PROJECT PROJ‑X99 SECURITY CODE IS 123456.”
                             </p>
                         </div>
 
@@ -168,7 +168,7 @@
                             <h5 class="fw-bold">2. Distractor synthesis</h5>
                             <p class="mb-0">
                                 It samples a set of plausible “INFO LOG” entries that contain other project IDs and other six‑digit codes,
-                                ensuring the distractors look structurally similar to the true signal.[file:31]
+                                ensuring the distractors look structurally similar to the true signal.
                             </p>
                         </div>
 
@@ -177,7 +177,7 @@
                             <p class="mb-0">
                                 Filler log sentences are drawn from a fixed list to reach a target context size, distractors are inserted
                                 at random positions, and the true needle is inserted at a requested depth percentage (0 = start,
-                                0.5 = middle, 1.0 = end).[file:31]
+                                0.5 = middle, 1.0 = end).
                             </p>
                         </div>
 
@@ -186,7 +186,7 @@
                             <p class="mb-0">
                                 Finally, the generator wraps the log data in an instruction block telling the model to return only
                                 the six‑digit code in JSON format, such as <code>{"code": "123456"}</code>, which makes parsing
-                                and error classification straightforward.[file:31]
+                                and error classification straightforward.
                             </p>
                         </div>
                     </div>
@@ -195,89 +195,89 @@
                     <p>
                         The notebook uses the official <code>google-generativeai</code> client to query Gemini 2.5 Flash and the
                         OpenAI client to query GPT‑4o‑mini, wrapping both in small helper functions that take a prompt string and
-                        return text.[file:31][web:60][web:63]
+                        return text.
                         Environment variables or Kaggle secrets supply API keys when available; if keys are missing, the functions
-                        fall back to a mock mode that simulates realistic failure patterns so the full pipeline still runs.[file:31]
+                        fall back to a mock mode that simulates realistic failure patterns so the full pipeline still runs.
                     </p>
 
                     <p>
                         In mock mode, Gemini’s accuracy is degraded more aggressively under heavy noise, while GPT‑4o‑mini is given
                         a specific weakness at mid‑context depths, letting you see the intended “lost in the middle” curves even
-                        without paid API access.[file:31][web:67]
+                        without paid API access.
                         When real keys are present, the same harness collects genuine outputs and logs latency for each call, enabling
-                        side‑by‑side comparisons.[file:31]
+                        side‑by‑side comparisons.
                     </p>
 
                     <h3 class="fw-bold mb-4 mt-5">Error Taxonomy & Evaluation Loop</h3>
                     <p>
                         A dedicated <code>is_correct</code> function and error classifier label each model response as
-                        <em>correct</em>, <em>hallucination</em>, or <em>format error</em>.[file:31]
+                        <em>correct</em>, <em>hallucination</em>, or <em>format error</em>.
                         The classifier first attempts to parse JSON, then falls back to regex to find any six‑digit sequence,
                         distinguishing between wrong codes (hallucinations) and outputs that never yield a valid code at all
-                        (format errors).[file:31]
+                        (format errors).
                     </p>
 
                     <p>
                         The main <code>run_comparison_grid</code> function sweeps across depths and noise levels, generating
                         paired probes and sending them to both models, then records accuracy, latency, context length, and
-                        error type for each run.[file:31]
+                        error type for each run.
                         The resulting dataframe feeds into aggregate metrics and Seaborn plots that visualize position bias
-                        (“lost in the middle”) and noise robustness curves.[file:31][web:67]
+                        (“lost in the middle”) and noise robustness curves.
                     </p>
 
                     <div class="callout my-4">
                         <strong>Behavioral example:</strong> The notebook includes runs where a model confidently returns a
                         well‑formed but incorrect code when multiple fake codes are present, which the error taxonomy flags
-                        as hallucinations rather than simple misses.[file:31]
+                        as hallucinations rather than simple misses.
                     </div>
 
                     <h3 class="fw-bold mb-4 mt-5">Constraint‑Based Verification Layer</h3>
                     <p>
                         To explore mitigation without retraining, the notebook implements a <strong>verification layer</strong>
-                        that only accepts a predicted code if it can be re‑found in the original context near the target project ID.[file:31]
+                        that only accepts a predicted code if it can be re‑found in the original context near the target project ID.
                         The verification function searches for the project tag in the haystack, then checks whether the candidate
-                        code appears within a configurable window of characters around that anchor.[file:31]
+                        code appears within a configurable window of characters around that anchor.
                     </p>
 
                     <p>
                         By running a small experiment on a fixed depth and distractor setting, the notebook compares raw accuracy
-                        to “constrained accuracy” — the fraction of answers that are both correct and verifiable under this rule.[file:31]
+                        to “constrained accuracy” — the fraction of answers that are both correct and verifiable under this rule.
                         It also reports how many hallucinations are downgraded to “no answer” (verification failure), illustrating
-                        how a simple structural constraint can reduce the risk of fabricated codes.[file:31]
+                        how a simple structural constraint can reduce the risk of fabricated codes.
                     </p>
 
                     <h3 class="fw-bold mb-4 mt-5">Analysis & Visualization</h3>
                     <p>
                         The analysis layer groups results by model and depth to plot position‑bias curves, then by model and
-                        number of distractors to show how each system degrades under adversarial noise.[file:31][web:67]
+                        number of distractors to show how each system degrades under adversarial noise.
                         Additional plots compare accuracy distributions and latency side‑by‑side, supporting an empirical,
-                        behavior‑first story rather than a one‑off anecdote.[file:31]
+                        behavior‑first story rather than a one‑off anecdote.
                     </p>
 
                     <p>
                         A small logistic regression (using scikit‑learn) is set up to model success probability as a function
                         of depth, distractor count, context length, and model identity, turning qualitative impressions into
-                        interpretable coefficients.[file:31]
+                        interpretable coefficients.
                         The notebook also computes simple win‑rates — how often Gemini vs GPT‑4o‑mini wins on the same probe —
-                        to summarize relative performance under different conditions.[file:31]
+                        to summarize relative performance under different conditions.
                     </p>
 
                     <h3 class="fw-bold mb-4 mt-5">Key Findings & Implications</h3>
                     <p>
                         The study surfaces classic long‑context failure modes: both models show sensitivity to evidence position,
                         especially in the middle of the haystack, and both can be pushed into structured hallucinations by
-                        realistic fake codes.[file:31][web:67]
+                        realistic fake codes.
                         Crucially, the error taxonomy reveals that many failures are not simple “did not find it” cases but
                         confident, wrong extractions or malformed outputs, which map directly to safety concerns in real
-                        retrieval‑augmented systems.[file:31]
+                        retrieval‑augmented systems.
                     </p>
 
                     <p>
                         The constraint‑based verification layer demonstrates that a large share of hallucinated codes can be
                         filtered out by checking for local textual support, trading some coverage for significantly better
-                        precision.[file:31]
+                        precision.
                         For practitioners, the notebook functions as a reusable harness: drop in any pair of models, run the
-                        grid, and get concrete behavioral metrics and mitigation levers for long‑context deployments.[file:31]
+                        grid, and get concrete behavioral metrics and mitigation levers for long‑context deployments.
                     </p>
                 </div>
 
@@ -301,23 +301,23 @@
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <i class="fas fa-flask me-2 text-muted"></i>
-                                Needle‑in‑a‑haystack probe generator with depth and distractor controls.[file:31]
+                                Needle‑in‑a‑haystack probe generator with depth and distractor controls.
                             </li>
                             <li class="mb-2">
                                 <i class="fas fa-code-branch me-2 text-muted"></i>
-                                Paired evaluation harness for Gemini 2.5 Flash and GPT‑4o‑mini, with mock‑mode support for offline runs.[file:31]
+                                Paired evaluation harness for Gemini 2.5 Flash and GPT‑4o‑mini, with mock‑mode support for offline runs.
                             </li>
                             <li class="mb-2">
                                 <i class="fas fa-bug-slash me-2 text-muted"></i>
-                                Error taxonomy and parsing logic for correct, hallucination, and format‑error responses.[file:31]
+                                Error taxonomy and parsing logic for correct, hallucination, and format‑error responses.
                             </li>
                             <li class="mb-2">
                                 <i class="fas fa-shield-alt me-2 text-muted"></i>
-                                Constraint‑based verification layer that checks whether predicted codes are locally supported by the context.[file:31]
+                                Constraint‑based verification layer that checks whether predicted codes are locally supported by the context.
                             </li>
                             <li class="mb-2">
                                 <i class="fas fa-chart-area me-2 text-muted"></i>
-                                Aggregation and plotting of position‑bias and noise‑robustness curves for each model.[file:31][web:67]
+                                Aggregation and plotting of position‑bias and noise‑robustness curves for each model.
                             </li>
                         </ul>
                     </div>
@@ -326,12 +326,12 @@
                         <h5 class="fw-bold mb-3">Role & Outcomes</h5>
                         <p class="mb-2">
                             I designed and implemented the full experimental pipeline, including probe generation, API integration,
-                            error taxonomy, constraint layer, and visual analytics.[file:31]
+                            error taxonomy, constraint layer, and visual analytics.
                         </p>
                         <p class="mb-0">
                             The result is a reusable, model‑agnostic framework for diagnosing long‑context reliability and
                             validating mitigation strategies before deploying LLMs into production RAG and safety‑critical
-                            retrieval workflows.[file:31][web:67]
+                            retrieval workflows.
                         </p>
                     </div>
                 </div>
