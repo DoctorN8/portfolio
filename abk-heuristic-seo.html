@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABK Heuristic & SEO Audit | Nathan St. Pierre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-brand: #aa784d; --dark-text: #2a2a2a; }
+        body { font-family: 'Lora', serif; color: #444; line-height: 1.7; background-color: #f9f9f9; }
+        h1, h2, h3, h4, h5, .nav-link, .btn, .badge-label { font-family: 'Montserrat', sans-serif; }
+
+        .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
+        .navbar-brand { font-weight: 800; letter-spacing: -0.5px; color: var(--dark-text); }
+        .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-brand) !important; }
+        .btn-brand { background-color: var(--primary-brand); color: white; padding: 8px 20px; border-radius: 6px; }
+        .btn-brand:hover { background-color: #8a603d; color: white; }
+
+        footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; margin-top: 80px; }
+
+        .case-hero { background-color: #ffffff; border-bottom: 1px solid #eaeaea; padding: 60px 0 40px 0; }
+        .case-meta { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: #777; }
+        .badge-label { font-size: 0.75rem; background-color: #f1f3f5; color: #495057; padding: 4px 10px; border-radius: 4px; margin-right: 6px; font-weight: 600; display: inline-block; margin-bottom: 4px; }
+
+        .case-section { background-color: #ffffff; margin-top: 30px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); }
+        .case-section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+        .case-section h3 { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        .highlight-callout { border-left: 4px solid var(--primary-brand); padding-left: 15px; font-style: italic; color: #666; margin: 15px 0; }
+        .severity-pill { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 0.75rem; margin-left: 6px; background-color: #f1f3f5; color: #555; }
+        .severity-pill span { margin-right: 2px; }
+
+        .heuristic-label { font-weight: 700; color: #333; }
+        .back-link { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: #777; text-decoration: none; }
+        .back-link:hover { color: var(--primary-brand); text-decoration: underline; }
+
+        @media (max-width: 767.98px) {
+            .case-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">NATHAN ST. PIERRE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                <li class="nav-item ms-lg-2"><a class="btn btn-brand btn-sm" href="reacutesumeacute.html">Resume</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="case-hero">
+    <div class="container">
+        <a href="projects.html" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Projects</a>
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <h1 class="fw-bold display-5">ABK Learning Solutions – Heuristic & SEO-Aligned UX Evaluation</h1>
+                <p class="text-muted lead mt-3">
+                    Heuristic evaluation of the “What Is a Vegan Diet?” training module and ABK’s site experience, using Nielsen’s heuristics and SEO-aware content analysis to surface usability issues and actionable fixes.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-lg-end mt-3 mt-lg-0">
+                    <div class="case-meta mb-2">Project Type</div>
+                    <div class="mb-3">
+                        <span class="badge-label">Heuristic Evaluation</span>
+                        <span class="badge-label">UX & Accessibility</span>
+                        <span class="badge-label">Content & SEO</span>
+                    </div>
+                    <div class="case-meta mb-2">Client</div>
+                    <p class="mb-1">ABK Learning Solutions, LLC</p>
+                    <a href="https://abklearningsolutions.com" class="text-decoration-none" target="_blank" rel="noopener noreferrer">
+                        Visit site <i class="fas fa-external-link-alt ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="container">
+        <div class="case-section">
+            <h2>Context & Goals</h2>
+            <p>
+                ABK Learning Solutions is an eLearning development company that designs instructional content, research-backed learning experiences, and analytics-informed programs for clients with diverse training needs.
+            </p>
+            <p>
+                One featured project is a Storyline 360 module titled “What Is a Vegan Diet?”, built for restaurant staff at Antony’s Ristorante to reduce customer complaints by improving employees’ understanding of vegan options.
+            </p>
+            <p>
+                I was engaged to perform a structured heuristic evaluation of the training, using Nielsen’s ten usability heuristics and a severity rating scale to identify issues that affect learner experience, comprehension, and completion.
+            </p>
+            <div class="highlight-callout">
+                “Use a fast, systematic heuristic pass to uncover critical friction points, then translate them into specific, implementable changes for the design and development team.”
+            </div>
+        </div>
+
+        <div class="case-section">
+            <h2>Methodology</h2>
+            [Image illustrating the 10 Nielsen Heuristics as a circular infographic]
+            <h3>Framework</h3>
+            <p>
+                The evaluation used Jakob Nielsen’s ten usability heuristics, including visibility of system status, user control and freedom, consistency and standards, flexibility and efficiency of use, error prevention, and recognition rather than recall.
+            </p>
+            <p>
+                Each identified issue was tagged with one or more violated heuristics and assigned a severity score on a 1–4 scale:
+                <strong>1</strong> = Cosmetic problem, <strong>2</strong> = Minor usability problem, <strong>3</strong> = Major usability problem, <strong>4</strong> = Usability catastrophe.
+            </p>
+
+            <h3>Process</h3>
+            <ul>
+                <li>Reviewed the training flow end-to-end from the learner’s perspective, including introduction, practice, and assessment.</li>
+                <li>Logged each usability issue with a short description, violated heuristic, and severity rating.</li>
+                <li>Drafted targeted recommendations designed to be realistic to implement within the existing Storyline framework.</li>
+            </ul>
+        </div>
+
+        <div class="case-section">
+            <h2>Selected Findings & Recommendations</h2>
+            [Image showing a sample of the audit spreadsheet with severity ratings and heuristic tags]
+
+            <h3>
+                1. Video Time Visibility 
+                <span class="severity-pill"><span>Severity:</span>⭐⭐ (2 – Minor)</span>
+            </h3>
+            <p>
+                <span class="heuristic-label">Heuristic Violated:</span> Visibility of System Status. Learners had no clear indication of how much time remained while watching the video segment, causing uncertainty about the commitment required.
+            </p>
+            <p>
+                <strong>Recommendation:</strong> Add a time display or progress indicator beneath the video player showing either elapsed or remaining time.
+            </p>
+
+            <h3>
+                2. Assessment Error Messages 
+                <span class="severity-pill"><span>Severity:</span>⭐⭐⭐ (3 – Major)</span>
+            </h3>
+            <p>
+                <span class="heuristic-label">Heuristics Violated:</span> Error Prevention, Recognition Rather Than Recall. Some error messages appeared even when learners answered correctly, undermining trust in the feedback system.
+            </p>
+            <p>
+                <strong>Recommendation:</strong> Audit trigger logic to ensure messages trigger only for incorrect responses, and clearly explain <em>why</em> an answer was wrong.
+            </p>
+
+            <h3>
+                3. Lack of “Back” Option in Assessment 
+                <span class="severity-pill"><span>Severity:</span>⭐⭐⭐ (3 – Major)</span>
+            </h3>
+            <p>
+                <span class="heuristic-label">Heuristic Violated:</span> User Control and Freedom. Once an assessment page was submitted, learners could not navigate backward to correct inadvertent clicks.
+            </p>
+            <p>
+                <strong>Recommendation:</strong> Add a “Back” button to act as an emergency exit and support revisiting previous items when appropriate.
+            </p>
+        </div>
+
+        <div class="case-section">
+            <h2>SEO & Content Alignment</h2>
+            <p>
+                While this was a usability review, the findings map directly to quality signals valued in modern SEO, such as clarity, user intent alignment, and helpfulness.
+            </p>
+            
+            <ul>
+                <li>Clear feedback supports user satisfaction and reduces abandonment, influencing engagement metrics.</li>
+                <li>Consistent language and readable microcopy help users evaluate on-page value quickly.</li>
+                <li>Status visibility and navigation reduce friction, making it more likely users complete the intended journey.</li>
+            </ul>
+        </div>
+
+        <div class="case-section">
+            <h2>Outcomes & Next Steps</h2>
+            <p>
+                The evaluation delivered a prioritized list of issuesPairing specific recommendations with severity scores enabled the development team to focus on high-impact changes first.
+            </p>
+            <p>
+                Future iterations can incorporate quantitative analytics—such as completion rates and time-on-task—to measure the impact of fixes over time and inform future module development.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <div class="container">
+        <div class="mb-4">
+            <a href="https://www.linkedin.com/in/doctorn8/" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="mailto:nathan.stpierre@gmail.com" class="text-white mx-2"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+        <p class="mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
