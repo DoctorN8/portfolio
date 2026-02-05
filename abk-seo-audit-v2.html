@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABK Learning Solutions – SEO Audit & Strategy | Nathan St. Pierre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-brand: #aa784d; --dark-text: #2a2a2a; }
+        body { font-family: 'Lora', serif; color: #444; line-height: 1.7; background-color: #f9f9f9; }
+        h1, h2, h3, h4, h5, .nav-link, .btn, .badge-label { font-family: 'Montserrat', sans-serif; }
+
+        .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
+        .navbar-brand { font-weight: 800; letter-spacing: -0.5px; color: var(--dark-text); }
+        .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-brand) !important; }
+        .btn-brand { background-color: var(--primary-brand); color: white; padding: 8px 20px; border-radius: 6px; }
+        .btn-brand:hover { background-color: #8a603d; color: white; }
+
+        footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; margin-top: 80px; }
+
+        .case-hero { background-color: #ffffff; border-bottom: 1px solid #eaeaea; padding: 60px 0 40px 0; }
+        .case-meta { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: #777; }
+        .badge-label { font-size: 0.75rem; background-color: #f1f3f5; color: #495057; padding: 4px 10px; border-radius: 4px; margin-right: 6px; font-weight: 600; display: inline-block; margin-bottom: 4px; }
+
+        .case-section { background-color: #ffffff; margin-top: 30px; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); }
+        .case-section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+        .case-section h3 { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        .highlight-callout { border-left: 4px solid var(--primary-brand); padding-left: 15px; font-style: italic; color: #666; margin: 15px 0; }
+        .pill { display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 0.75rem; margin-right: 5px; background-color: #f1f3f5; color: #555; text-transform: uppercase; letter-spacing: 0.06em; }
+
+        .back-link { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: #777; text-decoration: none; }
+        .back-link:hover { color: var(--primary-brand); text-decoration: underline; }
+
+        .dev-notes { font-size: 0.9rem; color: #555; }
+        .dev-notes li::marker { color: var(--primary-brand); }
+
+        .table-responsive { margin-top: 15px; }
+        .table th { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: #777; }
+        .table td { font-size: 0.9rem; vertical-align: top; }
+
+        @media (max-width: 767.98px) {
+            .case-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">NATHAN ST. PIERRE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                <li class="nav-item ms-lg-2"><a class="btn btn-brand btn-sm" href="reacutesumeacute.html">Resume</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="case-hero">
+    <div class="container">
+        <a href="projects.html" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Projects</a>
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <h1 class="fw-bold display-5">ABK Learning Solutions – Complete SEO Audit & Strategy</h1>
+                <p class="text-muted lead mt-3">
+                    Page-by-page SEO recommendations, internal linking strategy, and content briefs for an instructional design and eLearning company, delivered as a developer-ready implementation guide with no CMS access.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-lg-end mt-3 mt-lg-0">
+                    <div class="case-meta mb-2">Project Type</div>
+                    <div class="mb-3">
+                        <span class="badge-label">SEO Audit</span>
+                        <span class="badge-label">Information Architecture</span>
+                        <span class="badge-label">Content Strategy</span>
+                    </div>
+                    <div class="case-meta mb-2">Client</div>
+                    <p class="mb-1">ABK Learning Solutions, LLC</p>
+                    <a href="https://abklearningsolutions.com" class="text-decoration-none" target="_blank" rel="noopener noreferrer">
+                        Visit site <i class="fas fa-external-link-alt ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="container">
+        <div class="case-section">
+            <h2>Context & Objectives</h2>
+            <p>
+                ABK Learning Solutions is an instructional design and custom eLearning studio that provides services including course design, accessibility-focused development, and analytics-informed learning programs.
+            </p>
+            <p>
+                The site had strong messaging and portfolio content, but most SEO elements had been set up quickly: generic titles, missing meta descriptions, limited internal linking, and inconsistent heading usage. The goal was to create a complete SEO audit and implementation plan that developers could execute without giving me direct CMS access.
+            </p>
+            <div class="highlight-callout">
+                Deliverable: a page-by-page SEO recommendation set, an internal linking map, and SEO-aware content briefs that preserve brand voice while improving search visibility and conversion paths.
+            </div>
+        </div>
+
+        <div class="case-section">
+            <h2>1. Page-by-Page SEO Recommendations</h2>
+            <p>
+                I evaluated each core page—home, services, about, contact, portfolio, and blog—focusing on titles, meta descriptions, headings, and opportunities to align copy with realistic search queries in the instructional design and L&amp;D space.
+            </p>
+
+            <h3>Home Page</h3>
+            <p class="mb-1"><span class="pill">URL</span> <a href="https://abklearningsolutions.com/" target="_blank" rel="noopener noreferrer">https://abklearningsolutions.com/</a> – Keep</p>
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Element</th>
+                            <th>Current</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Title</td>
+                            <td>ABK LEARNING SOLUTIONS</td>
+                            <td>
+                                <strong>Instructional Design &amp; Custom eLearning Solutions | ABK Learning Solutions</strong><br>
+                                (67 characters – includes primary keywords for search visibility.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Meta Description</td>
+                            <td>Not clearly defined / missing.</td>
+                            <td>
+                                <strong>Custom eLearning, instructional design, and accessible training solutions that drive measurable business results. From microlearning to full curriculum development.</strong><br>
+                                (159 characters.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>H1</td>
+                            <td>Learning That's Built to Stick.</td>
+                            <td><strong>Instructional Design &amp; eLearning Solutions That Drive Results</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Suggested H2s</td>
+                            <td>Varied marketing copy.</td>
+                            <td>
+                                Why Learning Design Matters for Business Outcomes<br>
+                                Our Approach: Strategy + Creativity + Measurable Impact<br>
+                                Featured Work: Learning That Sticks
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="dev-notes">
+                <li>HIGH PRIORITY: Update the page title to include “instructional design” and “eLearning.”</li>
+                <li>Add a meta description tag; currently missing or generic.</li>
+                <li>Ensure the main hero line is a semantic &lt;h1&gt;, not just a styled element.</li>
+                <li>Add internal links to the Services page within the hero description paragraph.</li>
+            </ul>
+
+            <h3>Services Page</h3>
+            <p class="mb-1"><span class="pill">URL</span> <a href="https://abklearningsolutions.com/services-offered/" target="_blank" rel="noopener noreferrer">/services-offered/</a> – Keep</p>
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Current</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Title</td>
+                            <td>Services Offered - ABK LEARNING SOLUTIONS</td>
+                            <td><strong>Instructional Design &amp; eLearning Development Services | ABK Learning Solutions</strong> (80 characters).</td>
+                        </tr>
+                        <tr>
+                            <td>Meta Description</td>
+                            <td>Generic / missing.</td>
+                            <td>
+                                <strong>Expert instructional design, eLearning development, accessibility compliance, LMS integration, and L&amp;D consulting. Backed by learning science and proven results.</strong> (159 characters.)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>H1</td>
+                            <td>Learning solutions that engage learners and deliver measurable results</td>
+                            <td><strong>Instructional Design &amp; eLearning Services</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Suggested H2s</td>
+                            <td>Section headings vary.</td>
+                            <td>
+                                Instructional Design &amp; Strategy<br>
+                                E-Learning &amp; Multimedia Development<br>
+                                Training Implementation &amp; Optimization<br>
+                                Consulting &amp; Mentorship<br>
+                                How We Work: Our Collaborative Process
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="dev-notes">
+                <li>HIGH PRIORITY: Front-load keywords in the title and simplify to a clear services label.</li>
+                <li>Shorten the H1 to a direct, keyword-rich phrase.</li>
+                <li>Link each service section to 1–2 relevant portfolio case studies where possible.</li>
+            </ul>
+
+            <h3>About, Contact, Portfolio, and Blog</h3>
+            <p>
+                For the About, Contact, Portfolio, and Blog pages, I created similar recommendation blocks: concise, keyword-aware titles, descriptive meta descriptions, and shorter, scannable H1s that align with user expectations (e.g., “About ABK Learning Solutions”, “Contact ABK Learning Solutions | Start Your Training Project Today”).
+            </p>
+            <p>
+                For blog posts, I recommended a standard format that keeps post titles under roughly 60 characters where possible, appends the brand in the title tag, and requires each post to have a unique meta description summarizing the value in 140–160 characters.
+            </p>
+        </div>
+
+        <div class="case-section">
+            <h2>2. Information Architecture & Internal Linking Strategy</h2>
+            <p>
+                The top-level navigation was clear, but internal linking between services, portfolio, blog, and contact was underutilized. I mapped out specific, contextual internal links to strengthen topical clusters and conversion paths without changing the site’s main structure.
+            </p>
+
+            <h3>Navigation Tweaks</h3>
+            <ul>
+                <li>Keep: Home, Portfolio, About Us, Blog, Shop, Contact Us.</li>
+                <li>Adjust label: “Services Offered” → “Services” for a cleaner and equally clear navigation item.</li>
+            </ul>
+
+            <h3>Strategic Internal Linking Plan</h3>
+            <p class="mb-1"><span class="pill">Home → Services / Portfolio</span></p>
+            <ul class="dev-notes">
+                <li>Link “eLearning modules” in the hero copy to the Services section on e-learning development.</li>
+                <li>Link “training programs” to the Instructional Design section on the Services page.</li>
+                <li>From the Featured Project area, link “What is a Vegan Diet?” to the Portfolio page or a dedicated project detail page.</li>
+                <li>Add “View All Services” below testimonials, linking to the Services page.</li>
+            </ul>
+
+            <p class="mb-1"><span class="pill">Services → Portfolio / Blog / About</span></p>
+            <ul class="dev-notes">
+                <li>Instructional Design: “See examples of needs analysis projects” → Portfolio (filtered or anchored section).</li>
+                <li>E-Learning Development: “View our Storyline 360 portfolio” → Portfolio.</li>
+                <li>Training Implementation: “Accessibility testing” → accessibility-focused blog post when available.</li>
+                <li>Consulting: “Portfolio &amp; resume coaching” → About page testimonials or a relevant case study.</li>
+                <li>“View Our Work” CTA in each service section → Portfolio page.</li>
+            </ul>
+
+            <p class="mb-1"><span class="pill">About → Services / Contact</span></p>
+            <ul class="dev-notes">
+                <li>Below “Our Mission”: “Explore Our Services →” linking to Services.</li>
+                <li>In “Why Work With Us,” link each benefit to a corresponding service section (evidence-based design → instructional design; polished products → e-learning development).</li>
+                <li>Add a “Work with ABK” button pointing to Contact.</li>
+            </ul>
+
+            <p class="mb-1"><span class="pill">Contact / Portfolio / Blog</span></p>
+            <ul class="dev-notes">
+                <li>Contact: “Not sure where to start? View our Services →” above the form; “See examples of our work” → Portfolio.</li>
+                <li>Portfolio: Link each project’s challenge/solution lines to the relevant service section and add “Interested in similar work? Contact us” below project lists.</li>
+                <li>Blog: Intro paragraph links “instructional design” → Services; add “Need help implementing these strategies? View our Services →” and a “Start a Project” CTA to Contact.</li>
+            </ul>
+
+            <h3>Internal Linking Best Practices Summary</h3>
+            <ul>
+                <li>Prioritize bidirectional links between Services and Portfolio to signal topical depth.</li>
+                <li>Ensure a clear About → Services → Contact funnel for visitors ready to engage.</li>
+                <li>Use descriptive anchor text (e.g., “accessibility compliance services”) instead of generic “click here.”</li>
+                <li>Aim for at least 2–4 contextual internal links per page, depending on length.</li>
+            </ul>
+        </div>
+
+        <div class="case-section">
+            <h2>3. SEO-Aware Content Briefs</h2>
+            <p>
+                Because the client has strong writing skills, I created SEO-aware content briefs rather than full rewrites, giving direction on focus topics, structure, and on-page optimization while leaving voice and style in their hands.
+            </p>
+
+            <h3>Blog & Resource Topics</h3>
+            <p>
+                I recommended a set of posts that reinforce the site’s target themes—accessibility, engagement, training ROI, and remote learning—and naturally support the services pages via internal links. Example briefs included:
+            </p>
+            <ul>
+                <li>
+                    <strong>Accessible eLearning in Practice:</strong> outline WCAG-aligned design tips, common pitfalls, and a short case on how ABK improved accessibility in a course; link back to Services (training implementation &amp; optimization).
+                </li>
+                <li>
+                    <strong>Designing Microlearning That Actually Changes Behavior:</strong> define microlearning, show use cases, and connect to ABK’s microlearning services and portfolio items.
+                </li>
+                <li>
+                    <strong>From Learning Objectives to Business Outcomes:</strong> connect measurement frameworks and evaluation strategies to the consulting and analytics-oriented offerings.
+                </li>
+            </ul>
+
+            <h3>Blog Post Template Guidelines</h3>
+            <ul>
+                <li>Use descriptive post titles under ~60 characters where possible, with “| ABK Learning Solutions Blog” appended in the title tag.</li>
+                <li>Include a unique 140–160 character meta description summarizing the benefit to the reader.</li>
+                <li>Add alt text to all images and 2–3 contextual internal links to relevant services or portfolio projects.</li>
+                <li>Include a bottom-of-post CTA such as “Ready to transform your training? Learn about our [specific service] →.”</li>
+            </ul>
+        </div>
+
+        <div class="case-section">
+            <h2>Outcomes & Next Steps</h2>
+            <p>
+                The final deliverable was a structured, developer-ready document combining page-level SEO changes, a concrete internal linking plan, and topic ideas for future content—all implementable without CMS credentials.
+            </p>
+            <p>
+                Next steps include phased implementation of title/meta updates, heading adjustments, and internal links, followed by tracking of organic traffic, rankings for priority queries (instructional design, eLearning development, accessibility), and conversions from key entry pages like Home, Services, and Portfolio.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <div class="container">
+        <div class="mb-4">
+            <a href="https://www.linkedin.com/in/doctorn8/" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="mailto:nathan.stpierre@gmail.com" class="text-white mx-2"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+        <p class="mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
