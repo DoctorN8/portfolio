@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-brand: #aa784d; --dark-text: #2a2a2a; }
+        :root { --primary-brand: #aa784d; --dark-text: #2a2a2a; --seo-accent: #20c997; --research-accent: #0d6efd; }
         body { font-family: 'Lora', serif; color: #444; line-height: 1.7; background-color: #f9f9f9; }
         h1, h2, h3, h4, h5, .nav-link, .btn, .tech-badge { font-family: 'Montserrat', sans-serif; }
         
-        /* Nav & Footer (Same as Index) */
+        /* Nav & Footer */
         .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
         .navbar-brand { font-weight: 800; letter-spacing: -0.5px; color: var(--dark-text); }
         .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; transition: color 0.3s; }
@@ -22,7 +22,7 @@
         footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; margin-top: 80px; }
 
         /* Filters & Cards */
-        .btn-filter { border: 2px solid #e0e0e0; background: white; color: #555; margin: 5px; border-radius: 50px; padding: 8px 25px; font-weight: 600; }
+        .btn-filter { border: 2px solid #e0e0e0; background: white; color: #555; margin: 5px; border-radius: 50px; padding: 8px 25px; font-weight: 600; transition: all 0.2s ease; }
         .btn-filter:hover, .btn-filter.active { background-color: var(--dark-text); color: white; border-color: var(--dark-text); }
         
         .project-card { border: none; border-radius: 12px; background: white; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; overflow: hidden; }
@@ -54,19 +54,20 @@
     <section class="bg-white py-5 border-bottom">
         <div class="container text-center">
             <h1 class="fw-bold display-5">Project Portfolio</h1>
-            <p class="text-muted lead">A collection of my work in Artificial Intelligence, Machine Learning, and UX Research.</p>
+            <p class="text-muted lead">A collection of my work in Artificial Intelligence, UX Research, and Search Optimization.</p>
             <div class="filter-buttons mt-4">
-                <button class="btn btn-filter active" onclick="filterProjects('all')">All Projects</button>
-                <button class="btn btn-filter" onclick="filterProjects('ai')">AI & Data Science</button>
-                <button class="btn btn-filter" onclick="filterProjects('research')">Research & UX</button>
+                <button class="btn btn-filter active" onclick="filterProjects('all', event)">All Projects</button>
+                <button class="btn btn-filter" onclick="filterProjects('ai', event)">AI & Data Science</button>
+                <button class="btn btn-filter" onclick="filterProjects('research', event)">Research & UX</button>
+                <button class="btn btn-filter" onclick="filterProjects('seo', event)">SEO & Heuristics</button>
             </div>
         </div>
     </section>
 
     <section class="py-5">
         <div class="container">
-            <div class="row g-4">
-                <!-- AI & Data Science Projects -->
+            <div class="row g-4" id="projectGrid">
+                
                 <div class="col-md-6 col-lg-4 project-item ai">
                     <div class="project-card">
                         <div class="card-header-icon" style="background-color: var(--primary-brand); color: white;"><i class="fas fa-gavel fa-3x"></i></div>
@@ -132,54 +133,87 @@
                     </div>
                 </div>
 
-                <!-- Service Desk Analytics -->
                 <div class="col-md-6 col-lg-4 project-item ai">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: var(--primary-brand); color: white;">
-                            <i class="fas fa-headset fa-3x"></i>
-                        </div>
+                        <div class="card-header-icon" style="background-color: var(--primary-brand); color: white;"><i class="fas fa-headset fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Service Desk Analytics</h3>
                             <p class="card-text">End-to-end DuckDB and Streamlit pipeline for service desk efficiency metrics.</p>
                             <div class="impact-text">"Turning raw ticket logs into VP-ready insights."</div>
-                            <div class="mb-3">
-                                <span class="tech-badge">Python</span>
-                                <span class="tech-badge">DuckDB</span>
-                                <span class="tech-badge">Streamlit</span>
-                            </div>
-                            <a href="service-desk-analytics.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">
-                                View Case Study
-                            </a>
+                            <div class="mb-3"><span class="tech-badge">Python</span><span class="tech-badge">DuckDB</span><span class="tech-badge">Streamlit</span></div>
+                            <a href="service-desk-analytics.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Long-context Gemini vs GPT-4o-mini -->
                 <div class="col-md-6 col-lg-4 project-item ai">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: var(--primary-brand); color: white;">
-                            <i class="fas fa-brain fa-3x"></i>
-                        </div>
+                        <div class="card-header-icon" style="background-color: var(--primary-brand); color: white;"><i class="fas fa-brain fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Long‑Context Diagnostics</h3>
-                            <p class="card-text">Gemini vs GPT‑4o‑mini needle‑in‑a‑haystack reliability study with constraint-based mitigation.</p>
-                            <div class="impact-text">"From context window size to measurable, mitigated reliability curves."</div>
-                            <div class="mb-3">
-                                <span class="tech-badge">Gemini 2.5 Flash</span>
-                                <span class="tech-badge">GPT‑4o‑mini</span>
-                                <span class="tech-badge">Python</span>
-                            </div>
-                            <a href="long-context-notebook.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">
-                                View Case Study
-                            </a>
+                            <p class="card-text">Gemini vs GPT‑4o‑mini needle‑in‑a‑haystack reliability study.</p>
+                            <div class="impact-text">"Measuring and mitigating context window reliability curves."</div>
+                            <div class="mb-3"><span class="tech-badge">Gemini</span><span class="tech-badge">GPT‑4o‑mini</span><span class="tech-badge">Python</span></div>
+                            <a href="long-context-notebook.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Research & UX Projects -->
+                <div class="col-md-6 col-lg-4 project-item seo">
+                    <div class="project-card">
+                        <div class="card-header-icon" style="background-color: var(--seo-accent); color: white;"><i class="fas fa-search-plus fa-3x"></i></div>
+                        <div class="card-body">
+                            <h3 class="h5 fw-bold">ABK Heuristic & SEO</h3>
+                            <p class="card-text">Comprehensive usability and search visibility evaluation for ABK platforms.</p>
+                            <div class="impact-text">"Identifying friction points in the user journey."</div>
+                            <div class="mb-3"><span class="tech-badge">Heuristics</span><span class="tech-badge">SEO Audit</span></div>
+                            <a href="abk-heuristic-seo.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 project-item seo">
+                    <div class="project-card">
+                        <div class="card-header-icon" style="background-color: var(--seo-accent); color: white;"><i class="fas fa-chart-line fa-3x"></i></div>
+                        <div class="card-body">
+                            <h3 class="h5 fw-bold">ABK SEO Audit v2</h3>
+                            <p class="card-text">Technical SEO deep-dive focusing on indexability and keyword performance.</p>
+                            <div class="impact-text">"Data-backed strategy for organic growth."</div>
+                            <div class="mb-3"><span class="tech-badge">Technical SEO</span><span class="tech-badge">Strategy</span></div>
+                            <a href="abk-seo-audit-v2.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 project-item seo">
+                    <div class="project-card">
+                        <div class="card-header-icon" style="background-color: var(--seo-accent); color: white;"><i class="fab fa-github fa-3x"></i></div>
+                        <div class="card-body">
+                            <h3 class="h5 fw-bold">GitHub SEO Audit</h3>
+                            <p class="card-text">Analyzing repository visibility and technical optimizations for GitHub projects.</p>
+                            <div class="impact-text">"Optimizing developer discovery."</div>
+                            <div class="mb-3"><span class="tech-badge">SEO</span><span class="tech-badge">Metadata</span></div>
+                            <a href="github-seo-audit-v2.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 project-item seo">
+                    <div class="project-card">
+                        <div class="card-header-icon" style="background-color: var(--seo-accent); color: white;"><i class="fas fa-map-marked-alt fa-3x"></i></div>
+                        <div class="card-body">
+                            <h3 class="h5 fw-bold">Melbourne 143 Audit</h3>
+                            <p class="card-text">Full-scale SEO audit for the Melbourne 143 initiative to improve reach.</p>
+                            <div class="impact-text">"Scaling local visibility through technical excellence."</div>
+                            <div class="mb-3"><span class="tech-badge">Audit</span><span class="tech-badge">Local SEO</span></div>
+                            <a href="melbourne143-seo-audit-v2.html" class="btn btn-outline-dark btn-sm w-100 mt-auto">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-6 col-lg-4 project-item research">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: #0d6efd; color: white;"><i class="fas fa-list-check fa-3x"></i></div>
+                        <div class="card-header-icon" style="background-color: var(--research-accent); color: white;"><i class="fas fa-list-check fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Vocal Audition Rubric</h3>
                             <p class="card-text">Redesigned assessment system via interviews, card sorting, and prototyping.</p>
@@ -192,7 +226,7 @@
 
                 <div class="col-md-6 col-lg-4 project-item research">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: #0d6efd; color: white;"><i class="fas fa-users fa-3x"></i></div>
+                        <div class="card-header-icon" style="background-color: var(--research-accent); color: white;"><i class="fas fa-users fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Music Lessons & Community</h3>
                             <p class="card-text">Qualitative research on reduced-fee music programs for low-income students.</p>
@@ -205,7 +239,7 @@
 
                 <div class="col-md-6 col-lg-4 project-item research">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: #0d6efd; color: white;"><i class="fas fa-chart-pie fa-3x"></i></div>
+                        <div class="card-header-icon" style="background-color: var(--research-accent); color: white;"><i class="fas fa-chart-pie fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Grading Attitudes</h3>
                             <p class="card-text">Cluster analysis identifying user personas to improve grading practices.</p>
@@ -218,7 +252,7 @@
 
                 <div class="col-md-6 col-lg-4 project-item research">
                     <div class="project-card">
-                        <div class="card-header-icon" style="background-color: #0d6efd; color: white;"><i class="fas fa-scroll fa-3x"></i></div>
+                        <div class="card-header-icon" style="background-color: var(--research-accent); color: white;"><i class="fas fa-scroll fa-3x"></i></div>
                         <div class="card-body">
                             <h3 class="h5 fw-bold">Standards-Based Grading</h3>
                             <p class="card-text">Widely cited study (N=96) on assessment methods among educators.</p>
@@ -245,11 +279,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function filterProjects(category) {
+        function filterProjects(category, event) {
+            // Update button active state
             document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if(event) {
+                event.target.classList.add('active');
+            }
+            
+            // Filter items
             document.querySelectorAll('.project-item').forEach(item => {
-                item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         }
     </script>
