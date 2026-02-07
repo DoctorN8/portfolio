@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Performance Dashboard | Nathan St. Pierre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --primary-brand: #aa784d; 
+            --dark-text: #2a2a2a; 
+            --light-bg: #f9f9f9;
+        }
+        body { 
+            font-family: 'Lora', serif; 
+            color: #444; 
+            line-height: 1.7; 
+            background-color: var(--light-bg); 
+        }
+        h1, h2, h3, h4, .nav-link, .btn, .tag, .tech-badge { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        
+        /* Nav & Footer */
+        .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
+        .navbar-brand { font-weight: 800; letter-spacing: -0.5px; color: var(--dark-text); text-decoration: none; }
+        .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; transition: color 0.3s; }
+        .nav-link:hover { color: var(--primary-brand) !important; }
+        .btn-brand { background-color: var(--primary-brand); color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; }
+        footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; margin-top: 80px; }
+
+        /* Project Header */
+        .project-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426') center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Content Sections */
+        .section-card {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .section-card h2 {
+            color: var(--primary-brand);
+            font-weight: 700;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+        }
+        
+        .tag {
+            background: #f1f3f5;
+            color: #495057;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-brand);
+            height: 100%;
+        }
+
+        .dashboard-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .back-link {
+            color: var(--primary-brand);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">NATHAN ST. PIERRE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-brand btn-sm" href="reacutesumeacute.html">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Operational Performance Dashboard</h1>
+            <p class="lead">Defense-Focused Analytics & Predictive Maintenance</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <a href="projects.html" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Projects</a>
+
+        <div class="section-card">
+            <h2><i class="fas fa-info-circle me-2"></i>Project Overview</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>
+                        This end-to-end data analytics project analyzes operational reliability and incident response metrics 
+                        across <strong>AIR, GROUND, and SEA</strong> platforms for a defense/aerospace operational environment. 
+                        The project demonstrates full-stack data science capabilities—from ETL pipeline development to 
+                        interactive dashboard publication.
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ps-lg-4">
+                        <h4 class="h6 fw-bold text-uppercase">Technologies</h4>
+                        <div class="d-flex flex-wrap">
+                            <span class="tag">Python</span>
+                            <span class="tag">DuckDB</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">ETL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="fas fa-chart-bar me-2"></i>Interactive Dashboard</h2>
+            <p class="text-muted mb-4">Explore the live metrics below. Filter by platform, date range, and severity to see real-time updates.</p>
+            
+            <div class="dashboard-container">
+                <div class='tableauPlaceholder' id='viz1738957200000' style='position: relative'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Dashboard 1' src='https://public.tableau.com/static/images/Op/OperationalPerformanceDashboard-NGDataScience/Dashboard1/1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='OperationalPerformanceDashboard-NGDataScience/Dashboard1' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Op/OperationalPerformanceDashboard-NGDataScience/Dashboard1/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="fas fa-star me-2"></i>Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-map-marked-alt me-2"></i>MTTR Heatmap</h4>
+                        <p class="small mb-0">Visualizes Mean Time to Resolution across platforms and locations, identifying high-latency problem areas for rapid response.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-history me-2"></i>Incident Trends</h4>
+                        <p class="small mb-0">Stacked volume analysis segmented by severity, enabling proactive resource allocation and pattern recognition.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-tools me-2"></i>Asset Reliability</h4>
+                        <p class="small mb-0">Failure rate rankings to prioritize maintenance scheduling and identify underperforming mission equipment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-filter me-2"></i>Dynamic Slicing</h4>
+                        <p class="small mb-0">Cross-filtering by domain (Air/Sea/Land) and timeframe allows for granular deep-dives into operational health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/doctorn8/" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="mailto:nathan.stpierre@gmail.com" class="text-white mx-2"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1738957200000');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1277px';
+        }
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
