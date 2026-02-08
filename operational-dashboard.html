@@ -11,140 +11,158 @@
         :root { 
             --primary-brand: #aa784d; 
             --dark-text: #2a2a2a; 
-            --light-bg: #fdfdfd;
-            --accent-bg: #f8f9fa;
+            --light-bg: #f9f9f9;
         }
         body { 
             font-family: 'Lora', serif; 
             color: #444; 
-            line-height: 1.8; 
+            line-height: 1.7; 
             background-color: var(--light-bg); 
         }
-        h1, h2, h3, h4, .nav-link, .btn, .tag, .tech-badge, .arch-node { 
+        h1, h2, h3, h4, .nav-link, .btn, .tag, .tech-badge, .arch-title { 
             font-family: 'Montserrat', sans-serif; 
         }
         
         /* Nav & Footer */
-        .navbar { padding: 1.2rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.04); background: rgba(255, 255, 255, 0.98); }
+        .navbar { padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.98); }
         .navbar-brand { font-weight: 800; letter-spacing: -0.5px; color: var(--dark-text); text-decoration: none; }
-        .nav-link { font-weight: 600; color: #555 !important; margin: 0 12px; transition: color 0.3s; }
+        .nav-link { font-weight: 600; color: #555 !important; margin: 0 10px; transition: color 0.3s; }
         .nav-link:hover { color: var(--primary-brand) !important; }
-        .btn-brand { background-color: var(--primary-brand); color: white; padding: 10px 24px; border-radius: 6px; text-decoration: none; transition: transform 0.2s; }
-        .btn-brand:hover { transform: translateY(-2px); color: white; opacity: 0.9; }
-        footer { background-color: var(--dark-text); color: #ddd; padding: 80px 0 40px 0; margin-top: 100px; }
+        .btn-brand { background-color: var(--primary-brand); color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; }
+        footer { background-color: var(--dark-text); color: #ddd; padding: 60px 0 30px 0; margin-top: 80px; }
 
         /* Project Header */
         .project-header {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426') center/cover;
             color: white;
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
-        /* Section Styling */
+        /* Content Sections */
         .section-card {
             background: white;
-            padding: 50px;
-            margin-bottom: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid #eee;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .section-card h2 {
             color: var(--primary-brand);
-            font-weight: 800;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
         }
         
-        /* Architecture Visualizer */
-        .arch-flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            padding: 20px 0;
-        }
-        .arch-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        .arch-node {
-            background: var(--accent-bg);
-            border: 2px solid #e9ecef;
-            padding: 15px 20px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-align: center;
-            min-width: 140px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-        .arch-node.highlight {
-            border-color: var(--primary-brand);
-            background: #fff;
-            color: var(--primary-brand);
-            width: 100%;
-            max-width: 500px;
-        }
-        .arch-arrow { color: #ccc; font-size: 1.2rem; }
-
         .tag {
             background: #f1f3f5;
             color: #495057;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin: 4px;
-            transition: all 0.3s;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
         }
-        .tag:hover { background: var(--primary-brand); color: white; }
 
         .feature-card {
-            background: var(--accent-bg);
-            padding: 30px;
-            border-radius: 12px;
-            border-top: 4px solid var(--primary-brand);
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-brand);
             height: 100%;
-            transition: transform 0.3s;
         }
-        .feature-card:hover { transform: translateY(-5px); }
+
+        .dashboard-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .back-link {
+            color: var(--primary-brand);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Architecture Diagram Styles */
+        .arch-container {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        .arch-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .arch-box {
+            border: 2px solid var(--primary-brand);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            background: white;
+            flex: 1;
+            min-width: 100px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .arch-box.source { border-style: dashed; border-color: #888; }
+        .arch-box h5 { font-size: 0.75rem; font-weight: 700; margin-bottom: 5px; color: var(--primary-brand); text-transform: uppercase; }
+        .arch-box p { font-size: 0.7rem; margin: 0; color: #666; font-family: 'Courier New', monospace; }
+        
+        .arch-arrow-down { text-align: center; color: var(--primary-brand); margin: -15px 0 10px 0; font-size: 1rem; }
+        
+        .arch-main-pipe {
+            background: #f1f3f5;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-brand);
+        }
+        .arch-main-pipe h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; color: #333; }
+        .arch-main-pipe p { font-size: 0.75rem; margin: 0; color: #666; font-family: 'Courier New', monospace; }
+        .arch-label { font-size: 0.7rem; font-weight: 800; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
 
         .metric-box {
             background: linear-gradient(135deg, var(--primary-brand), #c89968);
             color: white;
-            padding: 25px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
             margin-bottom: 20px;
         }
-        .metric-box h3 { font-size: 2.2rem; font-weight: 800; margin: 0; }
-        
+        .metric-box h3 { font-size: 2rem; margin: 0; }
+        .metric-box p { margin: 5px 0 0 0; opacity: 0.9; }
+
         .github-link {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             background: #24292e;
             color: white;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: background 0.3s;
         }
-        .github-link:hover { background: #000; color: white; transform: scale(1.02); }
-
-        .back-link { color: var(--primary-brand); text-decoration: none; font-weight: 700; display: inline-block; margin-bottom: 30px; }
-        
-        @media (max-width: 768px) {
-            .section-card { padding: 30px 20px; }
-            .arch-node { width: 100%; }
+        .github-link:hover {
+            background: #2f363d;
+            color: white;
         }
     </style>
 </head>
@@ -161,7 +179,7 @@
                     <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-brand btn-sm" href="resume.html">Resume</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn btn-brand btn-sm" href="resume.html">Resume</a></li>
                 </ul>
             </div>
         </div>
@@ -169,9 +187,9 @@
 
     <header class="project-header">
         <div class="container">
-            <h1 class="display-3 fw-bold mb-3">Defense ETL & Analytics Pipeline</h1>
-            <p class="lead fs-4 opacity-90">Production-Ready Data Engineering for Defense Asset Management</p>
-            <div class="mt-5">
+            <h1 class="display-4 fw-bold">Defense ETL & Analytics Pipeline</h1>
+            <p class="lead">Production-Ready Data Engineering for Defense Asset Management</p>
+            <div class="mt-4">
                 <a href="https://github.com/DoctorN8/defense-etl-analytics" target="_blank" class="github-link">
                     <i class="fab fa-github fa-lg"></i>
                     View on GitHub
@@ -184,128 +202,240 @@
         <a href="projects.html" class="back-link"><i class="fas fa-arrow-left me-2"></i>Back to Projects</a>
 
         <div class="section-card">
-            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
-            <div class="row g-5">
+            <h2><i class="fas fa-info-circle me-2"></i>Project Overview</h2>
+            <div class="row">
                 <div class="col-lg-8">
-                    <p class="fs-5">
-                        A <strong>production-ready ETL pipeline</strong> demonstrating data engineering best practices for defense asset telemetry and incident management. This project showcases the complete data lifecycle: from heterogeneous ingestion to star-schema warehousing and automated ML integration.
+                    <p>
+                        A <strong>production-ready ETL pipeline</strong> demonstrating data engineering best practices for 
+                        defense asset telemetry, events, and incident management. This project showcases the complete data 
+                        lifecycle from heterogeneous source ingestion through star schema warehousing, automated quality 
+                        validation, semantic layer design, and machine learning integration.
                     </p>
                     <p>
-                        Specifically designed for <strong>defense and aerospace use-cases</strong>, the pipeline consolidates data from:
+                        Built to demonstrate capabilities relevant to <strong>defense and aerospace organizations</strong>,
+                        the pipeline consolidates data from:
                     </p>
-                    <ul class="mt-3">
-                        <li><strong>Relational Ops DB:</strong> Asset lifecycle, event logs, and incident reports.</li>
-                        <li><strong>CSV Log Extracts:</strong> Batch data from legacy external systems.</li>
-                        <li><strong>JSON Telemetry:</strong> Real-time sensor feeds and platform monitoring.</li>
+                    <ul>
+                        <li><strong>Relational operations database</strong> (SQL-like) for assets, events, and incidents</li>
+                        <li><strong>CSV log extracts</strong> from external systems</li>
+                        <li><strong>JSON-based telemetry feeds</strong> from sensors and monitoring systems</li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="h6 fw-bold text-uppercase mb-3">Tech Stack</h4>
-                    <div class="d-flex flex-wrap mb-4">
-                        <span class="tag">Python</span><span class="tag">DuckDB</span>
-                        <span class="tag">Pandas</span><span class="tag">scikit-learn</span>
-                        <span class="tag">Tableau</span><span class="tag">SQL</span>
-                        <span class="tag">Matplotlib</span><span class="tag">PyTest</span>
-                    </div>
-                    <div class="metric-box">
-                        <h3>3,700+</h3>
-                        <p class="small mb-0 text-uppercase fw-bold">Records Processed</p>
-                    </div>
-                    <div class="metric-box">
-                        <h3>6</h3>
-                        <p class="small mb-0 text-uppercase fw-bold">Core Modules</p>
+                    <div class="ps-lg-4">
+                        <h4 class="h6 fw-bold text-uppercase mb-3">Tech Stack</h4>
+                        <div class="d-flex flex-wrap">
+                            <span class="tag">Python</span>
+                            <span class="tag">DuckDB</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">scikit-learn</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Seaborn</span>
+                        </div>
+                        <div class="mt-4">
+                            <div class="metric-box">
+                                <h3>3,700+</h3>
+                                <p>Records Processed</p>
+                            </div>
+                            <div class="metric-box">
+                                <h3>6</h3>
+                                <p>Core Modules</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="section-card">
-            <h2><i class="fas fa-project-diagram"></i> System Architecture</h2>
-            <p class="text-muted mb-5">End-to-end data flow from source ingestion to delivery.</p>
+            <h2><i class="fas fa-project-diagram me-2"></i>System Architecture</h2>
+            <p class="text-muted mb-3">End-to-end data flow from source ingestion to analytics delivery</p>
             
-            <div class="arch-flow">
+            <div class="arch-container">
+                <div class="arch-label text-center">Data Sources</div>
                 <div class="arch-row">
-                    <div class="arch-node">Assets (CSV)</div>
-                    <div class="arch-node">Events (CSV)</div>
-                    <div class="arch-node">Incidents (CSV)</div>
-                    <div class="arch-node">Telemetry (JSON)</div>
+                    <div class="arch-box source"><h5>Assets</h5><p>(CSV)</p></div>
+                    <div class="arch-box source"><h5>Events</h5><p>(CSV)</p></div>
+                    <div class="arch-box source"><h5>Incidents</h5><p>(CSV)</p></div>
+                    <div class="arch-box source"><h5>Telemetry</h5><p>(JSON)</p></div>
                 </div>
-                <div class="arch-arrow"><i class="fas fa-chevron-down"></i></div>
-                <div class="arch-node highlight">EXTRACT & VALIDATE <br><small class="fw-normal">etl.py, quality.py</small></div>
-                <div class="arch-arrow"><i class="fas fa-chevron-down"></i></div>
-                <div class="arch-node highlight">TRANSFORM & STAR SCHEMA <br><small class="fw-normal">dim_asset, dim_date, fact_events, fact_incidents</small></div>
-                <div class="arch-arrow"><i class="fas fa-chevron-down"></i></div>
-                <div class="arch-node highlight">SEMANTIC LAYER (DuckDB) <br><small class="fw-normal">vw_asset_health, vw_incident_risk</small></div>
-                <div class="arch-arrow"><i class="fas fa-chevron-down"></i></div>
+
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+
+                <div class="arch-main-pipe">
+                    <h5>EXTRACT & VALIDATE</h5>
+                    <p>etl.py, quality.py</p>
+                </div>
+
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+
+                <div class="arch-main-pipe">
+                    <h5>TRANSFORM & ENRICH (Star Schema)</h5>
+                    <p>dim_asset, dim_date, fact_events, fact_incidents</p>
+                </div>
+
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+
+                <div class="arch-main-pipe">
+                    <h5>LOAD TO ANALYTICS WAREHOUSE</h5>
+                    <p>DuckDB / Semantic Layer (ontology.py)</p>
+                </div>
+
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+
                 <div class="arch-row">
-                    <div class="arch-node">ANALYTICS<br><small class="fw-normal">Tableau / Plots</small></div>
-                    <div class="arch-node">ML MODELS<br><small class="fw-normal">Risk Prediction</small></div>
+                    <div class="arch-box">
+                        <h5>ANALYTICS</h5>
+                        <p>Tableau & Reports</p>
+                    </div>
+                    <div class="arch-box">
+                        <h5>ML MODELS</h5>
+                        <p>Risk & Severity</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="section-card">
-            <h2><i class="fas fa-chart-bar"></i> Interactive Dashboard</h2>
+            <h2><i class="fas fa-chart-bar me-2"></i>Interactive Dashboard</h2>
             <p class="text-muted mb-4">
-                Operational performance metrics across AIR, GROUND, and SEA platforms. Filter by severity to analyze MTTR and asset reliability.
+                Explore operational performance metrics across AIR, GROUND, and SEA platforms. 
+                Filter by platform, date range, and severity to analyze incident trends, MTTR, and asset reliability.
             </p>
-            <div class="rounded-4 overflow-hidden shadow-sm border">
+            
+            <div class="dashboard-container">
                 <div class='tableauPlaceholder' id='viz1738957200000' style='position: relative'>
-                    <noscript><a href='#'><img alt='Dashboard' src='https://public.tableau.com/static/images/Op/OperationalPerformanceDashboard-NGDataScience/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Dashboard 1' src='https://public.tableau.com/static/images/Op/OperationalPerformanceDashboard-NGDataScience/Dashboard1/1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
                     <object class='tableauViz' style='display:none;'>
                         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
                         <param name='name' value='OperationalPerformanceDashboard-NGDataScience/Dashboard1' />
-                        <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
                         <param name='static_image' value='https://public.tableau.com/static/images/Op/OperationalPerformanceDashboard-NGDataScience/Dashboard1/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
                     </object>
                 </div>
             </div>
         </div>
 
         <div class="section-card">
-            <h2><i class="fas fa-star"></i> Key Capabilities</h2>
+            <h2><i class="fas fa-star me-2"></i>Key Features & Capabilities</h2>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h6 fw-bold mb-3"><i class="fas fa-database me-2"></i> Star Schema</h4>
-                        <p class="small text-muted mb-0">Dimensional modeling optimized for analytical queries and seamless BI tool integration.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-database me-2"></i>Star Schema Warehouse</h4>
+                        <p class="small mb-0">
+                            Dimensional modeling with 2 dimension tables (dim_asset, dim_date) and 2 fact tables 
+                            (fact_events, fact_incidents) optimized for analytical queries and BI tool integration.
+                        </p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h6 fw-bold mb-3"><i class="fas fa-check-circle me-2"></i> Quality Framework</h4>
-                        <p class="small text-muted mb-0">Automated validation for null rates, referential integrity, and value range constraints.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-check-circle me-2"></i>Data Quality Framework</h4>
+                        <p class="small mb-0">
+                            Automated validation checks for null rates, referential integrity, value ranges, and enum 
+                            constraints with comprehensive logging to a quality database for audit trails.
+                        </p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h6 fw-bold mb-3"><i class="fas fa-brain me-2"></i> ML Pipeline</h4>
-                        <p class="small text-muted mb-0">Random Forest classifier for incident severity prediction and proactive risk scoring.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-layer-group me-2"></i>Semantic Layer</h4>
+                        <p class="small mb-0">
+                            Business-friendly views (vw_asset_health, vw_incident_summary, vw_incident_risk) with 
+                            data catalog, lineage tracking, and pre-calculated KPIs for executive reporting.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-brain me-2"></i>ML Pipeline</h4>
+                        <p class="small mb-0">
+                            Random Forest classifier for incident severity prediction with feature engineering, 
+                            model persistence, and batch inference capabilities for proactive risk assessment.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="fas fa-cogs me-2"></i>Technical Implementation</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="h6 fw-bold text-uppercase mb-3">Core Modules</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>config.py</strong> - Configuration and constants</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>etl.py</strong> - ETL pipeline orchestration</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>quality.py</strong> - Data quality validation</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>ontology.py</strong> - Semantic layer & catalog</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>ml.py</strong> - Machine learning pipeline</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>dashboards.py</strong> - Analytics & visualization</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="h6 fw-bold text-uppercase mb-3">Outputs Generated</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-database text-muted me-2"></i>DuckDB warehouse (ng_analytics.duckdb)</li>
+                        <li class="mb-2"><i class="fas fa-robot text-muted me-2"></i>ML model (severity_model.pkl)</li>
+                        <li class="mb-2"><i class="fas fa-file-csv text-muted me-2"></i>Tableau-ready CSV exports</li>
+                        <li class="mb-2"><i class="fas fa-chart-bar text-muted me-2"></i>Automated visualizations (PNG)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card text-center">
+            <h2><i class="fab fa-github me-2"></i>Explore the Code</h2>
+            <p class="text-muted mb-4">
+                Full source code, documentation, and setup instructions available on GitHub
+            </p>
+            <a href="https://github.com/DoctorN8/defense-etl-analytics" target="_blank" class="github-link">
+                <i class="fab fa-github fa-lg"></i>
+                View Repository
+            </a>
         </div>
     </main>
 
     <footer class="text-center">
         <div class="container">
             <div class="mb-4">
-                <a href="#" class="text-white mx-3"><i class="fab fa-linkedin fa-xl"></i></a>
-                <a href="#" class="text-white mx-3"><i class="fab fa-github fa-xl"></i></a>
-                <a href="#" class="text-white mx-3"><i class="fas fa-envelope fa-xl"></i></a>
+                <a href="https://www.linkedin.com/in/doctorn8/" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/DoctorN8" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
+                <a href="mailto:nathan.stpierre@gmail.com" class="text-white mx-2"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
-            <p class="small opacity-50 mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
+            <p class="mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
         </div>
     </footer>
 
     <script type='text/javascript'>
         var divElement = document.getElementById('viz1738957200000');
         var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '100%';
-        vizElement.style.height = (divElement.offsetWidth * 0.6) + 'px';
+        if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1277px';
+        }
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
