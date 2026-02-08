@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operational Performance Dashboard | Nathan St. Pierre</title>
+    <title>Defense ETL & Analytics Pipeline | Nathan St. Pierre</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,6 +90,44 @@
             margin-bottom: 20px;
         }
         .back-link:hover { text-decoration: underline; }
+
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .metric-box {
+            background: linear-gradient(135deg, var(--primary-brand), #c89968);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .metric-box h3 { font-size: 2rem; margin: 0; }
+        .metric-box p { margin: 5px 0 0 0; opacity: 0.9; }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #24292e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .github-link:hover {
+            background: #2f363d;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -113,8 +151,14 @@
 
     <header class="project-header">
         <div class="container">
-            <h1 class="display-4 fw-bold">Operational Performance Dashboard</h1>
-            <p class="lead">Defense-Focused Analytics & Predictive Maintenance</p>
+            <h1 class="display-4 fw-bold">Defense ETL & Analytics Pipeline</h1>
+            <p class="lead">Production-Ready Data Engineering for Defense Asset Management</p>
+            <div class="mt-4">
+                <a href="https://github.com/DoctorN8/defense-etl-analytics" target="_blank" class="github-link">
+                    <i class="fab fa-github fa-lg"></i>
+                    View on GitHub
+                </a>
+            </div>
         </div>
     </header>
 
@@ -126,22 +170,43 @@
             <div class="row">
                 <div class="col-lg-8">
                     <p>
-                        This end-to-end data analytics project analyzes operational reliability and incident response metrics 
-                        across <strong>AIR, GROUND, and SEA</strong> platforms for a defense/aerospace operational environment. 
-                        The project demonstrates full-stack data science capabilities—from ETL pipeline development to 
-                        interactive dashboard publication.
+                        A <strong>production-ready ETL pipeline</strong> demonstrating data engineering best practices for 
+                        defense asset telemetry, events, and incident management. This project showcases the complete data 
+                        lifecycle from heterogeneous source ingestion through star schema warehousing, automated quality 
+                        validation, semantic layer design, and machine learning integration.
                     </p>
+                    <p>
+                        Built to demonstrate capabilities relevant to <strong>defense and aerospace organizations</strong>,
+                        the pipeline consolidates data from:
+                    </p>
+                    <ul>
+                        <li><strong>Relational operations database</strong> (SQL-like) for assets, events, and incidents</li>
+                        <li><strong>CSV log extracts</strong> from external systems</li>
+                        <li><strong>JSON-based telemetry feeds</strong> from sensors and monitoring systems</li>
+                    </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="ps-lg-4">
-                        <h4 class="h6 fw-bold text-uppercase">Technologies</h4>
+                        <h4 class="h6 fw-bold text-uppercase mb-3">Tech Stack</h4>
                         <div class="d-flex flex-wrap">
                             <span class="tag">Python</span>
                             <span class="tag">DuckDB</span>
                             <span class="tag">Pandas</span>
+                            <span class="tag">scikit-learn</span>
                             <span class="tag">Tableau</span>
                             <span class="tag">SQL</span>
-                            <span class="tag">ETL</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Seaborn</span>
+                        </div>
+                        <div class="mt-4">
+                            <div class="metric-box">
+                                <h3>3,700+</h3>
+                                <p>Records Processed</p>
+                            </div>
+                            <div class="metric-box">
+                                <h3>6</h3>
+                                <p>Core Modules</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,8 +214,65 @@
         </div>
 
         <div class="section-card">
+            <h2><i class="fas fa-project-diagram me-2"></i>System Architecture</h2>
+            <p class="text-muted mb-3">End-to-end data flow from source ingestion to analytics delivery</p>
+            
+            <div class="architecture-diagram">
+┌─────────────────────────────────────────────────────────────────┐
+│                     DATA SOURCES                                 │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐       │
+│  │ Assets   │  │ Events   │  │Incidents │  │Telemetry │       │
+│  │  (CSV)   │  │  (CSV)   │  │  (CSV)   │  │  (JSON)  │       │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘       │
+└───────┼─────────────┼─────────────┼─────────────┼──────────────┘
+        │             │             │             │
+        └─────────────┴─────────────┴─────────────┘
+                      │
+        ┌─────────────▼──────────────┐
+        │   EXTRACT & VALIDATE       │
+        │   (etl.py, quality.py)     │
+        └─────────────┬──────────────┘
+                      │
+        ┌─────────────▼──────────────┐
+        │   TRANSFORM & ENRICH       │
+        │   (Star Schema Design)     │
+        │   - dim_asset              │
+        │   - dim_date               │
+        │   - fact_events            │
+        │   - fact_incidents         │
+        └─────────────┬──────────────┘
+                      │
+        ┌─────────────▼──────────────┐
+        │   LOAD TO WAREHOUSE        │
+        │   (DuckDB Analytics DB)    │
+        └─────────────┬──────────────┘
+                      │
+        ┌─────────────▼──────────────┐
+        │   SEMANTIC LAYER           │
+        │   (ontology.py)            │
+        │   - vw_asset_health        │
+        │   - vw_incident_risk       │
+        │   - Business metrics       │
+        └─────────────┬──────────────┘
+                      │
+        ┌─────────────┴──────────────┐
+        │                            │
+┌───────▼────────┐         ┌────────▼────────┐
+│  ANALYTICS     │         │  ML MODELS      │
+│  (dashboards)  │         │  (ml.py)        │
+│  - Tableau CSVs│         │  - Severity     │
+│  - Plots       │         │    Prediction   │
+│  - Reports     │         │  - Risk Scoring │
+└────────────────┘         └─────────────────┘
+            </div>
+        </div>
+
+        <div class="section-card">
             <h2><i class="fas fa-chart-bar me-2"></i>Interactive Dashboard</h2>
-            <p class="text-muted mb-4">Explore the live metrics below. Filter by platform, date range, and severity to see real-time updates.</p>
+            <p class="text-muted mb-4">
+                Explore operational performance metrics across AIR, GROUND, and SEA platforms. 
+                Filter by platform, date range, and severity to analyze incident trends, MTTR, and asset reliability.
+            </p>
             
             <div class="dashboard-container">
                 <div class='tableauPlaceholder' id='viz1738957200000' style='position: relative'>
@@ -179,33 +301,129 @@
         </div>
 
         <div class="section-card">
-            <h2><i class="fas fa-star me-2"></i>Key Features</h2>
+            <h2><i class="fas fa-star me-2"></i>Key Features & Capabilities</h2>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h5 fw-bold"><i class="fas fa-map-marked-alt me-2"></i>MTTR Heatmap</h4>
-                        <p class="small mb-0">Visualizes Mean Time to Resolution across platforms and locations, identifying high-latency problem areas for rapid response.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-database me-2"></i>Star Schema Warehouse</h4>
+                        <p class="small mb-0">
+                            Dimensional modeling with 2 dimension tables (dim_asset, dim_date) and 2 fact tables 
+                            (fact_events, fact_incidents) optimized for analytical queries and BI tool integration.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h5 fw-bold"><i class="fas fa-history me-2"></i>Incident Trends</h4>
-                        <p class="small mb-0">Stacked volume analysis segmented by severity, enabling proactive resource allocation and pattern recognition.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-check-circle me-2"></i>Data Quality Framework</h4>
+                        <p class="small mb-0">
+                            Automated validation checks for null rates, referential integrity, value ranges, and enum 
+                            constraints with comprehensive logging to a quality database for audit trails.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h5 fw-bold"><i class="fas fa-tools me-2"></i>Asset Reliability</h4>
-                        <p class="small mb-0">Failure rate rankings to prioritize maintenance scheduling and identify underperforming mission equipment.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-layer-group me-2"></i>Semantic Layer</h4>
+                        <p class="small mb-0">
+                            Business-friendly views (vw_asset_health, vw_incident_summary, vw_incident_risk) with 
+                            data catalog, lineage tracking, and pre-calculated KPIs for executive reporting.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="feature-card">
-                        <h4 class="h5 fw-bold"><i class="fas fa-filter me-2"></i>Dynamic Slicing</h4>
-                        <p class="small mb-0">Cross-filtering by domain (Air/Sea/Land) and timeframe allows for granular deep-dives into operational health.</p>
+                        <h4 class="h5 fw-bold"><i class="fas fa-brain me-2"></i>ML Pipeline</h4>
+                        <p class="small mb-0">
+                            Random Forest classifier for incident severity prediction with feature engineering, 
+                            model persistence, and batch inference capabilities for proactive risk assessment.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-chart-line me-2"></i>Automated Analytics</h4>
+                        <p class="small mb-0">
+                            Tableau-ready CSV exports and automated visualization generation (MTTR heatmaps, 
+                            incident trends, failure rate distributions) for operational dashboards.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="h5 fw-bold"><i class="fas fa-vial me-2"></i>Production-Ready Code</h4>
+                        <p class="small mb-0">
+                            Modular architecture with 6 core modules, comprehensive unit tests (pytest), 
+                            professional documentation, and .gitignore for clean version control.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="fas fa-cogs me-2"></i>Technical Implementation</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="h6 fw-bold text-uppercase mb-3">Core Modules</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>config.py</strong> - Configuration and constants</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>etl.py</strong> - ETL pipeline orchestration</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>quality.py</strong> - Data quality validation</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>ontology.py</strong> - Semantic layer & catalog</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>ml.py</strong> - Machine learning pipeline</li>
+                        <li class="mb-2"><i class="fas fa-file-code text-muted me-2"></i><strong>dashboards.py</strong> - Analytics & visualization</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="h6 fw-bold text-uppercase mb-3">Outputs Generated</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-database text-muted me-2"></i>DuckDB warehouse (ng_analytics.duckdb)</li>
+                        <li class="mb-2"><i class="fas fa-robot text-muted me-2"></i>ML model (severity_model.pkl)</li>
+                        <li class="mb-2"><i class="fas fa-file-csv text-muted me-2"></i>5 Tableau-ready CSV exports</li>
+                        <li class="mb-2"><i class="fas fa-chart-bar text-muted me-2"></i>4 automated visualizations (PNG)</li>
+                        <li class="mb-2"><i class="fas fa-clipboard-check text-muted me-2"></i>Quality validation reports</li>
+                        <li class="mb-2"><i class="fas fa-book text-muted me-2"></i>Executive summary reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="fas fa-bullseye me-2"></i>Business Value</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <i class="fas fa-clock fa-3x text-muted mb-3"></i>
+                        <h5>Reduced MTTR</h5>
+                        <p class="small text-muted">Identify high-latency problem areas across platforms and locations for rapid response optimization</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <i class="fas fa-shield-alt fa-3x text-muted mb-3"></i>
+                        <h5>Proactive Maintenance</h5>
+                        <p class="small text-muted">ML-powered severity prediction enables preventive action before critical failures occur</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <i class="fas fa-chart-pie fa-3x text-muted mb-3"></i>
+                        <h5>Data-Driven Decisions</h5>
+                        <p class="small text-muted">Executive dashboards with KPIs for resource allocation and strategic planning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card text-center">
+            <h2><i class="fab fa-github me-2"></i>Explore the Code</h2>
+            <p class="text-muted mb-4">
+                Full source code, documentation, and setup instructions available on GitHub
+            </p>
+            <a href="https://github.com/DoctorN8/defense-etl-analytics" target="_blank" class="github-link">
+                <i class="fab fa-github fa-lg"></i>
+                View Repository
+            </a>
         </div>
     </main>
 
@@ -213,6 +431,7 @@
         <div class="container">
             <div class="mb-4">
                 <a href="https://www.linkedin.com/in/doctorn8/" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/DoctorN8" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
                 <a href="mailto:nathan.stpierre@gmail.com" class="text-white mx-2"><i class="fas fa-envelope fa-lg"></i></a>
             </div>
             <p class="mb-0">&copy; 2025 Nathan St. Pierre. All rights reserved.</p>
